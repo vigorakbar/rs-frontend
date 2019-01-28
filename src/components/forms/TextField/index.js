@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import cx from 'classnames';
 
 const TextField = (props) => {
   const {
@@ -7,7 +8,7 @@ const TextField = (props) => {
     onValueChange, className, inputId, iconLeft, iconRight, ...rest
   } = props;
   return (
-    <div className="input-group" {...rest}>
+    <div className={cx('input-group', className)} {...rest}>
       <form>
         {iconLeft
           && (
