@@ -3,7 +3,7 @@ module.exports = {
     "env": {
         "browser": true,
         "node": true,
-        "jasmine": true
+        "jasmine": true,
       },
       "rules": {
         "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
@@ -15,4 +15,9 @@ module.exports = {
           }
         },
       },
+    "parser": "babel-eslint",
+    "plugins": [
+      "react",
+      "jest",
+    ]
 };

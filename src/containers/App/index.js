@@ -1,19 +1,23 @@
 import React from 'react';
-import { Route, Link } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import Home from 'containers/Home';
 import About from 'containers/About';
+import Login from 'containers/Login';
+
+const renderNotFound = () => (
+  <div>
+    Page not found
+  </div>
+);
 
 const App = () => (
   <div>
-    <header>
-      <Link to="/">Home</Link>
-      <Link to="/about-us">About</Link>
-    </header>
-
-    <main>
+    <Switch>
       <Route exact path="/" component={Home} />
       <Route exact path="/about-us" component={About} />
-    </main>
+      <Route exact path="/login" component={Login} />
+      <Route component={() => renderNotFound()} />
+    </Switch>
   </div>
 );
 
