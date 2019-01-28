@@ -1,9 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const TextField = (props) => {
   const {
-    disabled, type, value, onInputClick, placeholder, maxLength, // eslint-disable-line
-    onValueChange, className, inputId, iconLeft, iconRight, ...rest // eslint-disable-line
+    disabled, type, value, onInputClick, placeholder, maxLength,
+    onValueChange, className, inputId, iconLeft, iconRight, ...rest
   } = props;
   return (
     <div className="input-group" {...rest}>
@@ -36,6 +37,20 @@ const TextField = (props) => {
       </form>
     </div>
   );
+};
+
+TextField.propTypes = {
+  disabled: PropTypes.bool,
+  type: PropTypes.string,
+  value: PropTypes.any.isRequired,
+  onInputClick: PropTypes.func,
+  placeholder: PropTypes.string,
+  maxLength: PropTypes.number,
+  onValueChange: PropTypes.func,
+  className: PropTypes.string,
+  inputId: PropTypes.string,
+  iconLeft: PropTypes.any,
+  iconRight: PropTypes.any,
 };
 
 export default TextField;
