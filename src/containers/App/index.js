@@ -11,14 +11,12 @@ const renderNotFound = () => (
 );
 
 const App = () => (
-  <div>
-    <Switch>
-      <Route exact path="/" component={Home} />
-      <Route exact path="/about-us" component={About} />
-      <Route exact path="/login" component={Login} />
-      <Route component={() => renderNotFound()} />
-    </Switch>
-  </div>
+  <Switch>
+    <Route exact path="/" component={Home} />
+    <Route exact path="/about-us" component={About} />
+    <Route exact path="/login" component={Login} />
+    <Route component={() => renderNotFound()} />
+  </Switch>
 );
 
 export default App;

@@ -3,7 +3,23 @@ import PropTypes from 'prop-types';
 import { push } from 'connected-react-router';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import TextField from 'components/forms/TextField';
+import BaseTextField from 'components/forms/TextField';
+import Styled from 'styled-components';
+
+const LoginCard = Styled.div`
+  width: 400px;
+`;
+
+const TextField = Styled(BaseTextField)`
+  margin-bottom: 20px;
+`;
+
+const LoginContainer = Styled.div`
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
 
 class Login extends React.PureComponent {
   state = {
@@ -27,13 +43,15 @@ class Login extends React.PureComponent {
     const { onLogin } = this.props;
     const { username, password } = this.state;
     return (
-      <div>
-        <h1>Login</h1>
-        <p>Login page</p>
-        <TextField type="text" value={username} onValueChange={this.onChangeUsername} />
-        <TextField type="text" value={password} onValueChange={this.onChangePassword} />
-        <button type="button" onClick={() => onLogin()}>Login</button>
-      </div>
+      <LoginContainer>
+        <LoginCard className="card text-center">
+          <div className="card-body">
+            <TextField type="text" value={username} placeholder="username" onValueChange={this.onChangeUsername} />
+            <TextField type="text" value={password} placeholder="password" onValueChange={this.onChangePassword} />
+            <button type="button" onClick={() => onLogin()}>Login</button>
+          </div>
+        </LoginCard>
+      </LoginContainer>
     );
   }
 }
