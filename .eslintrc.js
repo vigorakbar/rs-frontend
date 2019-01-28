@@ -4,6 +4,7 @@ module.exports = {
         "browser": true,
         "node": true,
         "jasmine": true,
+        "jest": true,
       },
       "rules": {
         "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
@@ -14,6 +15,7 @@ module.exports = {
             "paths": ["src"]
           }
         },
+        "import/no-extraneous-dependencies": ["error", {"devDependencies": true}]
       },
     "parser": "babel-eslint",
     "plugins": [
