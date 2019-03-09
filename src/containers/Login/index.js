@@ -1,13 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { push } from 'connected-react-router';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import BaseTextField from 'components/forms/TextField';
 import Styled from 'styled-components';
+import { onLoginAdmin } from './actions';
 
 const LoginCard = Styled.div`
   width: 400px;
+  margin: 20px;
+  border-radius: 20px;
+  border: 2px solid rgba(0,0,0,.125);
+  box-shadow: 0 0 50px -4px grey;
+
+  div > .input-wrapper {
+    padding: 20px;
+  }
 `;
 
 const TextField = Styled(BaseTextField)`
@@ -46,9 +54,12 @@ class Login extends React.PureComponent {
       <LoginContainer>
         <LoginCard className="card text-center">
           <div className="card-body">
-            <TextField type="text" value={username} placeholder="username" onValueChange={this.onChangeUsername} />
-            <TextField type="text" value={password} placeholder="password" onValueChange={this.onChangePassword} />
-            <button type="button" onClick={() => onLogin()}>Login</button>
+            <div>*icon*</div>
+            <div className="input-wrapper">
+              <TextField type="text" value={username} placeholder="username" onValueChange={this.onChangeUsername} />
+              <TextField type="password" value={password} placeholder="password" onValueChange={this.onChangePassword} />
+            </div>
+            <button type="button" className="btn btn-primary" onClick={() => onLogin(username, password)}>Login</button>
           </div>
         </LoginCard>
       </LoginContainer>
@@ -62,7 +73,7 @@ Login.propTypes = {
 
 const mapDispatchToProps = dispatch => bindActionCreators(
   {
-    onLogin: () => push('/about-us'),
+    onLogin: (username, password) => onLoginAdmin(username, password),
   },
   dispatch,
 );
