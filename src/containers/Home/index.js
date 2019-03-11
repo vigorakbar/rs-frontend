@@ -8,7 +8,10 @@ const Home = props => (
   <div>
     <h1>Home</h1>
     <p>Welcome home!</p>
-    <button type="button" onClick={() => props.changePage()}>Go to about page via redux</button>
+    <button type="button" onClick={() => props.changePage('/about-us')}>Go to about page via redux</button>
+    <br />
+    <br />
+    <button type="button" onClick={() => props.changePage('/login')}>login as admin</button>
   </div>
 );
 
@@ -18,7 +21,7 @@ Home.propTypes = {
 
 const mapDispatchToProps = dispatch => bindActionCreators(
   {
-    changePage: () => push('/about-us'),
+    changePage: url => push(url),
   },
   dispatch,
 );
