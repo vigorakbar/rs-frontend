@@ -36,12 +36,16 @@ const store = createStore(
   peristedState,
   composedEnhancers,
 );
-
 store.subscribe(() => {
   saveState({
-    admin: store.getState().admin,
+    admin: {
+      token: store.getState().admin.token,
+      errorMessage: null,
+    },
   });
 });
+
+// WTFFF TOKEN ERRORR??????? FUCKK
 
 sagaMiddleware.run(rootSaga);
 

@@ -4,7 +4,7 @@ import Home from 'containers/Home';
 import About from 'containers/About';
 import Login from 'containers/admins/Login';
 import AdminTestPage from 'containers/admins/Test';
-import { ProtectedRoute } from './ProtectedRoute';
+import ProtectedRoute from './ProtectedRoute';
 
 const renderNotFound = () => (
   <div>

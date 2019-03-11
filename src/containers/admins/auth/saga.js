@@ -8,7 +8,7 @@ export function* onLogin(action) {
     const response = yield call(() => loginAdmin(username, password));
     yield put(onLoginSuccess(response.data.token));
   } catch (e) {
-    yield put(onLoginError(e));
+    yield put(onLoginError(e.response.statusText));
   }
 }
 

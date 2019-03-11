@@ -4,7 +4,10 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import BaseTextField from 'components/forms/TextField';
 import Styled from 'styled-components';
-import { onLoginAdmin } from './actions';
+import { push } from 'connected-react-router';
+import isEqual from 'lodash/isEqual';
+
+import { onLoginAdmin } from 'containers/admins/auth/actions';
 
 const LoginCard = Styled.div`
   width: 400px;
@@ -35,6 +38,20 @@ class Login extends React.PureComponent {
     password: '',
   }
 
+  componentDidMount() {
+    const { token, changePage } = this.props;
+    if (token) changePage();
+  }
+
+  componentDidUpdate(prevProps) {
+    const { token, changePage } = this.props;
+    if (!isEqual(this.props, prevProps)) {
+      if (token) {
+        changePage();
+      }
+    }
+  }
+
   onChangeUsername = (username) => {
     this.setState({
       username,
@@ -48,18 +65,25 @@ class Login extends React.PureComponent {
   }
 
   render() {
-    const { onLogin } = this.props;
+    const { onLogin, errorMessage } = this.props;
     const { username, password } = this.state;
     return (
       <LoginContainer>
         <LoginCard className="card text-center">
           <div className="card-body">
             <div>*icon*</div>
-            <div className="input-wrapper">
-              <TextField type="text" value={username} placeholder="username" onValueChange={this.onChangeUsername} />
-              <TextField type="password" value={password} placeholder="password" onValueChange={this.onChangePassword} />
-            </div>
-            <button type="button" className="btn btn-primary" onClick={() => onLogin(username, password)}>Login</button>
+            <form>
+              <div className="input-wrapper">
+                <TextField type="text" value={username} placeholder="username" onValueChange={this.onChangeUsername} />
+                <TextField type="password" value={password} placeholder="password" onValueChange={this.onChangePassword} />
+                {errorMessage && (
+                  <div className="invalid-feedback">
+                  Invalid username or password
+                  </div>
+                )}
+              </div>
+              <button type="button" className="btn btn-primary" onClick={() => onLogin(username, password)}>Login</button>
+            </form>
           </div>
         </LoginCard>
       </LoginContainer>
@@ -69,16 +93,25 @@ class Login extends React.PureComponent {
 
 Login.propTypes = {
   onLogin: PropTypes.func.isRequired,
+  changePage: PropTypes.func.isRequired,
+  token: PropTypes.any,
+  errorMessage: PropTypes.any,
 };
 
 const mapDispatchToProps = dispatch => bindActionCreators(
   {
     onLogin: (username, password) => onLoginAdmin(username, password),
+    changePage: () => push('/admin/test'),
   },
   dispatch,
 );
 
+const mapStateToProps = (state) => {
+  const { token, errorMessage } = state.admin;
+  return { token, errorMessage };
+};
+
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps,
 )(Login);

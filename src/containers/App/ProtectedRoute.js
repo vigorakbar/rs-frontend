@@ -3,7 +3,7 @@ import { Route, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-export const ProtectedRoute = ({ component: Component, token, ...rest }) => (
+const ProtectedRoute = ({ component: Component, token, ...rest }) => (
   <Route
     {...rest}
     render={props => (
@@ -20,12 +20,12 @@ export const ProtectedRoute = ({ component: Component, token, ...rest }) => (
 
 ProtectedRoute.propTypes = {
   component: PropTypes.any,
-  location: PropTypes.string,
+  location: PropTypes.any,
   token: PropTypes.string,
 };
 
 const mapStateToProps = (state) => {
-  const { token } = state;
+  const { token } = state.admin;
   return { token };
 };
 

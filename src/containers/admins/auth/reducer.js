@@ -1,4 +1,4 @@
-import { LOGIN_SUCCESS, LOGIN_ERROR } from './actions';
+import { LOGIN_SUCCESS, LOGIN_ERROR, LOGOUT } from './actions';
 
 const loginAdmin = (state = {}, action) => {
   switch (action.type) {
@@ -13,6 +13,12 @@ const loginAdmin = (state = {}, action) => {
         ...state,
         token: null,
         errorMessage: action.message,
+      };
+    case LOGOUT:
+      return {
+        ...state,
+        token: null,
+        errorMessage: null,
       };
     default:
       return state;
