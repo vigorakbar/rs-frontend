@@ -45,8 +45,6 @@ store.subscribe(() => {
   });
 });
 
-// WTFFF TOKEN ERRORR??????? FUCKK
-
 sagaMiddleware.run(rootSaga);
 
 export default store;
