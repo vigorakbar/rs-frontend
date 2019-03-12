@@ -9,33 +9,31 @@ const TextField = (props) => {
   } = props;
   return (
     <div className={cx('input-group', className)} {...rest}>
-      <form>
-        {iconLeft
-          && (
+      {iconLeft
+        && (
+        <span className="input-group-addon">
+          <i className={iconLeft} />
+        </span>
+        )
+      }
+      <input
+        className="form-control"
+        disabled={disabled}
+        type={type}
+        value={value}
+        onClick={onInputClick}
+        placeholder={placeholder}
+        maxLength={maxLength}
+        onChange={e => onValueChange(e.target.value)}
+        id={inputId}
+      />
+      {iconRight
+        && (
           <span className="input-group-addon">
-            <i className={iconLeft} />
+            <i className={iconRight} />
           </span>
-          )
-        }
-        <input
-          className="form-control"
-          disabled={disabled}
-          type={type}
-          value={value}
-          onClick={onInputClick}
-          placeholder={placeholder}
-          maxLength={maxLength}
-          onChange={e => onValueChange(e.target.value)}
-          id={inputId}
-        />
-        {iconRight
-          && (
-            <span className="input-group-addon">
-              <i className={iconRight} />
-            </span>
-          )
-        }
-      </form>
+        )
+      }
     </div>
   );
 };

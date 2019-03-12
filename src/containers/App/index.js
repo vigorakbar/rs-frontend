@@ -2,7 +2,9 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Home from 'containers/Home';
 import About from 'containers/About';
-import Login from 'containers/Login';
+import Login from 'containers/admins/Login';
+import AdminTestPage from 'containers/admins/Test';
+import ProtectedRoute from './ProtectedRoute';
 
 const renderNotFound = () => (
   <div>
@@ -15,6 +17,7 @@ const App = () => (
     <Route exact path="/" component={Home} />
     <Route exact path="/about-us" component={About} />
     <Route exact path="/login" component={Login} />
+    <ProtectedRoute exact path="/admin/test" component={AdminTestPage} />
     <Route component={() => renderNotFound()} />
   </Switch>
 );
