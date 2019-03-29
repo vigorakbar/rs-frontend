@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 
 import Image from '../index';
 
@@ -11,7 +11,7 @@ describe('<Image />', () => {
 
   it('should adopt src attribute', () => {
     const renderedComponent = shallow(<Image src="mamamoo.com" alt="alt"/>);
-    expect((renderedComponent.find('img')).prop('src')).toEqual("mamamoo.com");
+    expect((renderedComponent.find('img')).prop('src')).toEqual('mamamoo.com');
   });
 
   it('should have className attribute', () => {
