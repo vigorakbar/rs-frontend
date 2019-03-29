@@ -10,7 +10,7 @@ describe('<Image />', () => {
   });
 
   it('should adopt src attribute', () => {
-    const renderedComponent = shallow(<Image src="mamamoo.com" alt="alt"/>);
+    const renderedComponent = shallow(<Image src="mamamoo.com" alt="alt" />);
     expect((renderedComponent.find('img')).prop('src')).toEqual('mamamoo.com');
   });
 
