@@ -47,30 +47,30 @@ const About = () => (
       />
     </ImageContainer>
     <ContentContainer>
-        <LogoImage
-          src="https://i.imgur.com/n8tNf6X.png"
-        />
-        <AboutText>
-            Rumah Belajar SAHAJA Ciroyom merupakan sebuah rumah belajar yang didirikan untuk
-            mendidik perilaku ‘anak marginal’ agar menjadi lebih baik, berakhlak mulia, berbudi
-            pekerti luhur, mandiri, memperoleh pendidikan yang layak dan dapat diterima oleh
-            masyarakat.
+      <LogoImage
+        src="https://i.imgur.com/n8tNf6X.png"
+      />
+      <AboutText>
+        Rumah Belajar SAHAJA Ciroyom merupakan sebuah rumah belajar yang didirikan untuk
+        mendidik perilaku ‘anak marginal’ agar menjadi lebih baik, berakhlak mulia, berbudi
+        pekerti luhur, mandiri, memperoleh pendidikan yang layak dan dapat diterima oleh
+        masyarakat.
 
-            Rumah belajar ini pertama kali digagas disekitar Pasar Ciroyom, Bandung, dan dalam
-            perkembangannya juga melakukan pembinaan terhadap ‘anak marginal’ disekitar Dago
-            Cikapayang, Buah Batu, Cimindi dan Cimahi.
+        Rumah belajar ini pertama kali digagas disekitar Pasar Ciroyom, Bandung, dan dalam
+        perkembangannya juga melakukan pembinaan terhadap ‘anak marginal’ disekitar Dago
+        Cikapayang, Buah Batu, Cimindi dan Cimahi.
 
-            Cikal bakal Rumah Belajar SAHAJA hanyalah sekumpulan mahasiswa yang turun ke
-            taman-taman kota dimana juga terdapat ‘anak marginal’, dan kemudian mulai mengajar
-            anak-anak tersebut. Seiring waktu, jumlah relawan yang bergabung semakin ramai dan
-            dalam perjalanannya merasa membutuhkan sebuah wadah yang lebih teroganisir dan
-            resmi. Karena itulah kemudian dibentuk Rumah Belajar SAHAJA.
+        Cikal bakal Rumah Belajar SAHAJA hanyalah sekumpulan mahasiswa yang turun ke
+        taman-taman kota dimana juga terdapat ‘anak marginal’, dan kemudian mulai mengajar
+        anak-anak tersebut. Seiring waktu, jumlah relawan yang bergabung semakin ramai dan
+        dalam perjalanannya merasa membutuhkan sebuah wadah yang lebih teroganisir dan
+        resmi. Karena itulah kemudian dibentuk Rumah Belajar SAHAJA.
 
-            Rumah Belajar SAHAJA secara resmi didirikan pada 1 Juli 2009. Titik berat pembinaan
-            adalah pada pendidikan membaca, bertulis dan berhitung (calistung), pendidikan agama
-            dan keterampilan. Sistem pendidikan disusun ‘menyerupai’ sistem pendidikan sekolah
-            umumnya, dengan evaluasi tiap 6 bulan masa belajar.
-        </AboutText>
+        Rumah Belajar SAHAJA secara resmi didirikan pada 1 Juli 2009. Titik berat pembinaan
+        adalah pada pendidikan membaca, bertulis dan berhitung (calistung), pendidikan agama
+        dan keterampilan. Sistem pendidikan disusun ‘menyerupai’ sistem pendidikan sekolah
+        umumnya, dengan evaluasi tiap 6 bulan masa belajar.
+      </AboutText>
     </ContentContainer>
   </OuterContainer>
 );
