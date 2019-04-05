@@ -5,6 +5,7 @@ import About from 'containers/About';
 import Login from 'containers/admins/Login';
 import AdminTestPage from 'containers/admins/Test';
 import ProtectedRoute from './ProtectedRoute';
+import AdminPostNewsPage from '../admins/PostNews';
 
 const renderNotFound = () => (
   <div>
@@ -18,6 +19,7 @@ const App = () => (
     <Route exact path="/about-us" component={About} />
     <Route exact path="/login" component={Login} />
     <ProtectedRoute exact path="/admin/test" component={AdminTestPage} />
+    <ProtectedRoute exact path="/admin/post-news" component={AdminPostNewsPage} />
     <Route component={() => renderNotFound()} />
   </Switch>
 );
