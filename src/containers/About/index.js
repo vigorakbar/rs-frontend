@@ -1,7 +1,11 @@
 import React from 'react';
+import Header from 'components/Header';
 
 const About = () => (
-  <div>this is about page</div>
+  <div>
+    <Header active="about-us" />
+    this is about page
+  </div>
 );
 
 export default About;
