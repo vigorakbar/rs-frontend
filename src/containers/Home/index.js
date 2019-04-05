@@ -3,9 +3,11 @@ import PropTypes from 'prop-types';
 import { push } from 'connected-react-router';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import Header from 'components/Header';
 
 const Home = props => (
   <div>
+    <Header active="home" />
     <h1>Home</h1>
     <p>Welcome home!</p>
     <button type="button" onClick={() => props.changePage('/about-us')}>Go to about page via redux</button>
