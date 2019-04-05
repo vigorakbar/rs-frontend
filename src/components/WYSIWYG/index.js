@@ -10,7 +10,6 @@ const WYSIWYG = (props) => {
     <Editor
       editorState={editorState}
       onEditorStateChange={onEditorStateChange}
-      editorClassName="editor-content"
     />
   );
 };
