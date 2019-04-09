@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import Home from 'containers/Home';
 import About from 'containers/About';
 import Login from 'containers/admins/Login';
+import PostNews from 'containers/admins/PostNews';
 import AdminTestPage from 'containers/admins/Test';
 import ProtectedRoute from './ProtectedRoute';
 
@@ -18,6 +19,7 @@ const App = () => (
     <Route exact path="/about-us" component={About} />
     <Route exact path="/login" component={Login} />
     <ProtectedRoute exact path="/admin/test" component={AdminTestPage} />
+    <ProtectedRoute exact path="/admin/post-news" component={PostNews} />
     <Route component={() => renderNotFound()} />
   </Switch>
 );
