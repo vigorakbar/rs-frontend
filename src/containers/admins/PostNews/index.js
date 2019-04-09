@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { EditorState } from 'draft-js';
 
 import WYSIWYG from 'components/WYSIWYG';
+import BaseButton from 'components/Button';
 
 const ContainerWYSIWYG = styled.div`
   border: 1px solid grey;
@@ -10,6 +11,12 @@ const ContainerWYSIWYG = styled.div`
   height: 400px !important;
   overflow: auto;
   width: 1000px;
+  margin: auto;
+`;
+
+const Button = styled(BaseButton)`
+  margin: 1em auto;
+  display: block;
 `;
 
 class PostNews extends React.Component {
@@ -22,9 +29,14 @@ class PostNews extends React.Component {
   render() {
     const { editorState } = this.state;
     return (
-      <ContainerWYSIWYG>
-        <WYSIWYG editorState={editorState} onEditorStateChange={this.onChange} />
-      </ContainerWYSIWYG>
+      <div>
+        <ContainerWYSIWYG>
+          <WYSIWYG editorState={editorState} onEditorStateChange={this.onChange} />
+        </ContainerWYSIWYG>
+        <Button buttonStyle="success" buttonSize="lg">
+          POST !
+        </Button>
+      </div>
     );
   }
 }
