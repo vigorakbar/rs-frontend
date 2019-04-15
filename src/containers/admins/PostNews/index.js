@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { EditorState } from 'draft-js';
+import { EditorState, convertToRaw } from 'draft-js';
 
 import WYSIWYG from 'components/WYSIWYG';
 import BaseButton from 'components/Button';
@@ -23,7 +23,12 @@ class PostNews extends React.Component {
   constructor(props) {
     super(props);
     this.state = { editorState: EditorState.createEmpty() };
-    this.onChange = editorState => this.setState({ editorState });
+  }
+
+  onChange = (editorState) => {
+    const contentState = editorState.getCurrentContent();
+    console.log('content state', convertToRaw(contentState));
+    this.setState({ editorState });
   }
 
   render() {
