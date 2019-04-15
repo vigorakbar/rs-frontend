@@ -4,6 +4,7 @@ import Home from 'containers/Home';
 import About from 'containers/About';
 import Login from 'containers/admins/Login';
 import AdminTestPage from 'containers/admins/Test';
+import UpdateProfile from 'containers/admins/UpdateProfile';
 import ProtectedRoute from './ProtectedRoute';
 
 const renderNotFound = () => (
@@ -17,6 +18,7 @@ const App = () => (
     <Route exact path="/" component={Home} />
     <Route exact path="/about-us" component={About} />
     <Route exact path="/login" component={Login} />
+    <Route exact path="/update-profile" component={UpdateProfile} />
     <ProtectedRoute exact path="/admin/test" component={AdminTestPage} />
     <Route component={() => renderNotFound()} />
   </Switch>
