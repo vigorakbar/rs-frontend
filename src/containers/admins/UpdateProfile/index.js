@@ -43,6 +43,47 @@ class UpdateProfile extends React.PureComponent {
     },
   }
 
+  onChangePassword = (name) => {
+    this.setState({
+      name,
+    });
+  }
+
+  onChangePhone = (phone) => {
+    this.setState({
+      phone,
+    });
+  }
+
+  onChangeEmail = (email) => {
+    this.setState({
+      email,
+    });
+  }
+
+  onChangeAddress = (address) => {
+    this.setState({
+      address,
+    });
+  }
+
+  onChangeAbout = (about) => {
+    this.setState({
+      about,
+    });
+  }
+
+  onChangeVision = (vision) => {
+    this.setState({
+      vision,
+    });
+  }
+
+  onChangeMission = (mission) => {
+    this.setState({
+      mission,
+    });
+  }
 
   render() {
     const {
