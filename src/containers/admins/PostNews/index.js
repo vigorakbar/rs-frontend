@@ -4,6 +4,8 @@ import { EditorState, convertToRaw } from 'draft-js';
 
 import WYSIWYG from 'components/WYSIWYG';
 import BaseButton from 'components/Button';
+import { postNews } from 'models/PostNews';
+
 
 const ContainerWYSIWYG = styled.div`
   border: 1px solid grey;
@@ -31,6 +33,13 @@ class PostNews extends React.Component {
     this.setState({ editorState });
   }
 
+  onButtonClick = (event) => {
+    event.preventDefault();
+
+    const { editorState } = this.state;
+    postNews(editorState).then(res => console.log('SUCCESS', res));
+  }
+
   render() {
     const { editorState } = this.state;
     return (
@@ -38,7 +47,7 @@ class PostNews extends React.Component {
         <ContainerWYSIWYG>
           <WYSIWYG editorState={editorState} onEditorStateChange={this.onChange} />
         </ContainerWYSIWYG>
-        <Button buttonStyle="success" buttonSize="lg">
+        <Button buttonStyle="success" buttonSize="lg" onClick={this.onButtonClick}>
           POST !
         </Button>
       </div>
