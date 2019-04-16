@@ -5,7 +5,7 @@ import BaseTextField from 'components/forms/TextField';
 import Button from 'components/Button';
 
 const UpdateProfileCard = Styled.div`
-  width: 400px;
+  width: 50em;
   margin: 20px;
   border-radius: 20px;
   border: 2px solid rgba(0,0,0,.125);
