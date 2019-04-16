@@ -89,26 +89,26 @@ class UpdateProfile extends React.PureComponent {
   }
 
   handleChangeFacebook = (facebook) => {
-    let linkState = {...this.state.link};
-    linkState.facebook = facebook;
+    const { link } = this.state;
+    link.facebook = facebook;
     this.setState({
-      link: linkState,
+      link,
     });
   }
 
   handleChangeInstagram = (instagram) => {
-    let linkState = {...this.state.link};
-    linkState.instagram = instagram;
+    const { link } = this.state;
+    link.instagram = instagram;
     this.setState({
-      link: linkState,
+      link,
     });
   }
 
   handleChangeTwitter = (twitter) => {
-    let linkState = {...this.state.link};
-    linkState.twitter = twitter;
+    const { link } = this.state;
+    link.twitter = twitter;
     this.setState({
-      link: linkState,
+      link,
     });
   }
 
