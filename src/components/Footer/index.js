@@ -3,9 +3,10 @@ import Styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
+import cx from 'classnames';
 
 const StyledFooter = Styled.footer`
-  border-top: 2px solid #C7E9E7;
+  border-top: 2px solid rgba(199, 233, 231, 0.7);
   margin-top: 10px;
   padding: 10px;
   color: rgba(0,0,0,.5);
@@ -25,9 +26,9 @@ const StyledFooter = Styled.footer`
 `;
 
 const Footer = (props) => {
-  const { profile } = props;
+  const { profile, className } = props;
   return (
-    <StyledFooter className="footer">
+    <StyledFooter className={cx('footer', className)}>
       <div className="container">
         <div><b>{profile.name}</b></div>
         <div>{profile.address}</div>
@@ -48,6 +49,7 @@ const Footer = (props) => {
 
 Footer.propTypes = {
   profile: PropTypes.object.isRequired,
+  className: PropTypes.string,
 };
 
 export default Footer;

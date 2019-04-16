@@ -10,6 +10,7 @@ import Styled from 'styled-components';
 
 const Nav = Styled.nav`
   background-image: linear-gradient(to right, white, #C7E9E7);
+  opacity: 0.9;
   box-shadow: 0 -7px 40px 0 grey;
   margin-bottom: 10px;
 `;
