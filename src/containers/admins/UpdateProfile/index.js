@@ -28,60 +28,87 @@ const UpdateProfileContainer = Styled.div`
 `;
 
 class UpdateProfile extends React.PureComponent {
-  state = {
-    name: '',
-    phone: '',
-    email: '',
-    address: '',
-    about: '',
-    vision: '',
-    mission: '',
-    link: {
-      facebook: '',
-      instagram: '',
-      twitter: '',
-    },
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: '',
+      phone: '',
+      email: '',
+      address: '',
+      about: '',
+      vision: '',
+      mission: '',
+      link: {
+        facebook: '',
+        instagram: '',
+        twitter: '',
+      },
+    };
   }
 
-  onChangePassword = (name) => {
+  handleChangeName = (name) => {
     this.setState({
       name,
     });
   }
 
-  onChangePhone = (phone) => {
+  handleChangePhone = (phone) => {
     this.setState({
       phone,
     });
   }
 
-  onChangeEmail = (email) => {
+  handleChangeEmail = (email) => {
     this.setState({
       email,
     });
   }
 
-  onChangeAddress = (address) => {
+  handleChangeAddress = (address) => {
     this.setState({
       address,
     });
   }
 
-  onChangeAbout = (about) => {
+  handleChangeAbout = (about) => {
     this.setState({
       about,
     });
   }
 
-  onChangeVision = (vision) => {
+  handleChangeVision = (vision) => {
     this.setState({
       vision,
     });
   }
 
-  onChangeMission = (mission) => {
+  handleChangeMission = (mission) => {
     this.setState({
       mission,
+    });
+  }
+
+  handleChangeFacebook = (facebook) => {
+    let linkState = {...this.state.link};
+    linkState.facebook = facebook;
+    this.setState({
+      link: linkState,
+    });
+  }
+
+  handleChangeInstagram = (instagram) => {
+    let linkState = {...this.state.link};
+    linkState.instagram = instagram;
+    this.setState({
+      link: linkState,
+    });
+  }
+
+  handleChangeTwitter = (twitter) => {
+    let linkState = {...this.state.link};
+    linkState.twitter = twitter;
+    this.setState({
+      link: linkState,
     });
   }
 
@@ -103,16 +130,16 @@ class UpdateProfile extends React.PureComponent {
             <h1>Update Profile Rumah Sahaja</h1>
             <form>
               <div className="input-wrapper">
-                <TextField type="text" value={name} placeholder="Nama Organisasi" onValueChange={this.onChangeName} />
-                <TextField type="text" value={phone} placeholder="Telepon" onValueChange={this.onChangePhone} />
-                <TextField type="text" value={email} placeholder="Alamat e-mail" onValueChange={this.onChangeEmail} />
-                <TextField type="text" value={address} placeholder="Alamat" onValueChange={this.onChangeAddress} />
-                <TextField type="text" value={about} placeholder="Tentang Organisasi" onValueChange={this.onChangeAbout} />
-                <TextField type="text" value={vision} placeholder="Visi Organisasi" onValueChange={this.onChangeVision} />
-                <TextField type="text" value={mission} placeholder="Misi Organisasi" onValueChange={this.onChangeMission} />
-                <TextField type="text" value={link.facebook} placeholder="Alamat Facebook" onValueChange={this.onChangeFacebook} />
-                <TextField type="text" value={link.instagram} placeholder="Alamat Instagram" onValueChange={this.onChangeInstagram} />
-                <TextField type="text" value={link.twitter} placeholder="Alamat Twitter" onValueChange={this.onChangeTwitter} />
+                <TextField type="text" value={name} placeholder="Nama Organisasi" onValueChange={this.handleChangeName} />
+                <TextField type="text" value={phone} placeholder="Telepon" onValueChange={this.handleChangePhone} />
+                <TextField type="text" value={email} placeholder="Alamat e-mail" onValueChange={this.handleChangeEmail} />
+                <TextField type="text" value={address} placeholder="Alamat" onValueChange={this.handleChangeAddress} />
+                <TextField type="text" value={about} placeholder="Tentang Organisasi" onValueChange={this.handleChangeAbout} />
+                <TextField type="text" value={vision} placeholder="Visi Organisasi" onValueChange={this.handleChangeVision} />
+                <TextField type="text" value={mission} placeholder="Misi Organisasi" onValueChange={this.handleChangeMission} />
+                <TextField type="text" value={link.facebook} placeholder="Alamat Facebook" onValueChange={this.handleChangeFacebook} />
+                <TextField type="text" value={link.instagram} placeholder="Alamat Instagram" onValueChange={this.handleChangeInstagram} />
+                <TextField type="text" value={link.twitter} placeholder="Alamat Twitter" onValueChange={this.handleChangeTwitter} />
               </div>
               <Button type="button" buttonStyle="primary" onClick={() => { console.log('I was clicked !'); }}>SUBMIT</Button>
             </form>
