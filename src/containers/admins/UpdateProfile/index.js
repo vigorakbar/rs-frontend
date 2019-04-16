@@ -2,6 +2,7 @@ import React from 'react';
 import Styled from 'styled-components';
 
 import BaseTextField from 'components/forms/TextField';
+import TextArea from 'components/forms/TextArea';
 import Button from 'components/Button';
 
 const UpdateProfileCard = Styled.div`
@@ -133,13 +134,13 @@ class UpdateProfile extends React.PureComponent {
                 <TextField type="text" value={name} placeholder="Nama Organisasi" onValueChange={this.handleChangeName} />
                 <TextField type="text" value={phone} placeholder="Telepon" onValueChange={this.handleChangePhone} />
                 <TextField type="text" value={email} placeholder="Alamat e-mail" onValueChange={this.handleChangeEmail} />
-                <TextField type="text" value={address} placeholder="Alamat" onValueChange={this.handleChangeAddress} />
-                <TextField type="text" value={about} placeholder="Tentang Organisasi" onValueChange={this.handleChangeAbout} />
-                <TextField type="text" value={vision} placeholder="Visi Organisasi" onValueChange={this.handleChangeVision} />
-                <TextField type="text" value={mission} placeholder="Misi Organisasi" onValueChange={this.handleChangeMission} />
                 <TextField type="text" value={link.facebook} placeholder="Alamat Facebook" onValueChange={this.handleChangeFacebook} />
                 <TextField type="text" value={link.instagram} placeholder="Alamat Instagram" onValueChange={this.handleChangeInstagram} />
                 <TextField type="text" value={link.twitter} placeholder="Alamat Twitter" onValueChange={this.handleChangeTwitter} />
+                <TextArea placeholder="Alamat" value={address} onChange={this.handleChangeAddress} rows={3} />
+                <TextArea placeholder="About Us" value={about} onChange={this.handleChangeAbout} rows={3} />
+                <TextArea placeholder="Visi Organisasi" value={vision} onChange={this.handleChangeVision} rows={3} />
+                <TextArea placeholder="Misi Organisasi" value={mission} onChange={this.handleChangeMission} rows={3} />
               </div>
               <Button type="button" buttonStyle="primary" onClick={() => { console.log('I was clicked !'); }}>SUBMIT</Button>
             </form>
