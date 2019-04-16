@@ -10,7 +10,7 @@ import isEqual from 'lodash/isEqual';
 import { onLoginAdmin } from 'containers/admins/auth/actions';
 
 const LoginCard = Styled.div`
-  width: 400px;
+  max-width: 400px;
   margin: 20px;
   border-radius: 20px;
   border: 2px solid rgba(0,0,0,.125);
