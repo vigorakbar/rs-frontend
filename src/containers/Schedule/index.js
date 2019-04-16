@@ -50,7 +50,7 @@ class Schedule extends React.PureComponent {
         this.setState({ events });
       })
       .catch((error) => {
-        console.log(error);
+        console.log(error); // eslint-disable-line
       });
   }
 
