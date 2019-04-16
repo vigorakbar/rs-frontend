@@ -18,7 +18,7 @@ const App = () => (
     <Route exact path="/" component={Home} />
     <Route exact path="/about-us" component={About} />
     <Route exact path="/login" component={Login} />
-    <Route exact path="/update-profile" component={UpdateProfile} />
+    <ProtectedRoute exact path="/admin/update-profile" component={UpdateProfile} />
     <ProtectedRoute exact path="/admin/test" component={AdminTestPage} />
     <Route component={() => renderNotFound()} />
   </Switch>
