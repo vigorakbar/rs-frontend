@@ -4,6 +4,7 @@ import { EditorState, convertToRaw } from 'draft-js';
 
 import WYSIWYG from 'components/WYSIWYG';
 import BaseButton from 'components/Button';
+
 import { postNews } from 'models/PostNews';
 
 
@@ -35,7 +36,6 @@ class PostNews extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-
     const { editorState } = this.state;
     postNews(editorState).then(res => console.log('SUCCESS', res));
   }
