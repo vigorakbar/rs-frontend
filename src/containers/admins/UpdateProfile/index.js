@@ -141,7 +141,7 @@ class UpdateProfile extends React.PureComponent {
               </div>
               <div className="form-group">
                 <label>Telepon</label>
-                <TextField type="text" value={phone} placeholder="Telepon" onValueChange={this.handleChangePhone} />
+                <TextField type="number" value={phone} placeholder="Telepon" onValueChange={this.handleChangePhone} />
               </div>
               <div className="form-group">
                 <label>e-mail</label>
