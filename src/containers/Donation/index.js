@@ -2,7 +2,7 @@ import React from 'react';
 import Styled from 'styled-components';
 import Header from 'components/Header';
 import BackgroundImg from 'assets/bg1.jpg';
-import BackgroundImgSm from 'assets/bg1-small.jpeg';
+import BackgroundImgSm from 'assets/bg1-small.jpg';
 
 const Container = Styled.div`
   height: 100%;
