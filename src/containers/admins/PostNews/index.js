@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import { EditorState, convertToRaw } from 'draft-js';
+import { connect } from 'react-redux';
 
 import WYSIWYG from 'components/WYSIWYG';
 import BaseButton from 'components/Button';
@@ -66,8 +68,9 @@ class PostNews extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    const { editorState } = this.state;
-    postNews(editorState).then(res => console.log('SUCCESS', res));
+    const { title, thumbnail, editorState } = this.state;
+    const { token } = this.props;
+    postNews(title, thumbnail, editorState, token).then(res => console.log('SUCCESS', res));
   }
 
   render() {
@@ -98,4 +101,15 @@ class PostNews extends React.Component {
   }
 }
 
-export default PostNews;
+PostNews.propTypes = {
+  token: PropTypes.any,
+};
+
+const mapStateToProps = (state) => {
+  const { token, errorMessage } = state.admin;
+  return { token, errorMessage };
+};
+
+export default connect(
+  mapStateToProps,
+)(PostNews);
