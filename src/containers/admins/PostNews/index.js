@@ -27,13 +27,13 @@ class PostNews extends React.Component {
     this.state = { editorState: EditorState.createEmpty() };
   }
 
-  onChange = (editorState) => {
+  handleChange = (editorState) => {
     const contentState = editorState.getCurrentContent();
     console.log('content state', convertToRaw(contentState));
     this.setState({ editorState });
   }
 
-  onButtonClick = (event) => {
+  handleSubmit = (event) => {
     event.preventDefault();
 
     const { editorState } = this.state;
@@ -44,12 +44,14 @@ class PostNews extends React.Component {
     const { editorState } = this.state;
     return (
       <div>
-        <ContainerWYSIWYG>
-          <WYSIWYG editorState={editorState} onEditorStateChange={this.onChange} />
-        </ContainerWYSIWYG>
-        <Button buttonStyle="success" buttonSize="lg" onClick={this.onButtonClick}>
-          POST !
-        </Button>
+        <form onSubmit={this.handleSubmit}>
+          <ContainerWYSIWYG>
+            <WYSIWYG editorState={editorState} onEditorStateChange={this.handleChange} />
+          </ContainerWYSIWYG>
+          <Button buttonStyle="success" buttonSize="lg">
+            POST !
+          </Button>
+        </form>
       </div>
     );
   }
