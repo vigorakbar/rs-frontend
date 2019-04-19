@@ -10,6 +10,7 @@ import Footer from 'components/Footer';
 import Image from 'components/Image';
 
 import BackgroundImg from 'assets/cover.jpg';
+import BackgroundImgSm from 'assets/cover-small.jpg';
 import logo from 'assets/logo-black2.png';
 
 import { getProfile } from 'models/Profile';
@@ -28,6 +29,11 @@ const Cover = Styled.div`
   margin-bottom: 30px;
   background-position: 0% 25%;
 
+  @media only screen and (max-width: 500px) {
+    background-image: url(${BackgroundImgSm});
+    background-position: 65% 25%;
+  }
+
   .cover-content {
     display: flex;
     flex-wrap: wrap;
@@ -35,8 +41,15 @@ const Cover = Styled.div`
     
 
     .logo {
-      height: 260px;
+      height: 20vw;
+      min-height: 183px;
+      max-height: 260px;
       margin: 3vw 10px 0 8vw;
+      @media only screen and (max-width: 500px) {
+        height: 123px;
+        min-height: 123px;
+        margin-left: 14px;
+      }
     }
 
     .quote-container {
@@ -116,10 +129,6 @@ class Home extends React.PureComponent {
           <Header active="home" />
           <div className="cover-content">
             <Image className="logo" src={logo} alt="Logo Rumah Sahaja" />
-            {/* <div className="quote-container">
-              <div className="quote quote-top">&quot;Karena Sedekah</div>
-              <div className="quote quote-bottom">Tidak Selalu Tentang Rupiah&quot;</div>
-            </div> */}
           </div>
         </Cover>
         <Content>
