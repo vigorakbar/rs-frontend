@@ -6,6 +6,7 @@ import Schedule from 'containers/Schedule';
 import Donation from 'containers/Donation';
 import Login from 'containers/admins/Login';
 import AdminTestPage from 'containers/admins/Test';
+import Playground from 'containers/Playground';
 import ProtectedRoute from './ProtectedRoute';
 
 const renderNotFound = () => (
@@ -21,6 +22,7 @@ const App = () => (
     <Route exact path="/login" component={Login} />
     <Route exact path="/schedule" component={Schedule} />
     <Route exact path="/donation" component={Donation} />
+    <Route exact path="/playground" component={Playground} />
     <ProtectedRoute exact path="/admin/test" component={AdminTestPage} />
     <Route component={() => renderNotFound()} />
   </Switch>
