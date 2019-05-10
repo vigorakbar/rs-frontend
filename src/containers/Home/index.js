@@ -5,77 +5,31 @@ import { push } from 'connected-react-router';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import Header from 'components/Header';
+import BaseHeader from 'components/Header';
 import Footer from 'components/Footer';
 import Image from 'components/Image';
 
 import BackgroundImg from 'assets/cover.jpg';
-import BackgroundImgSm from 'assets/cover-small.jpg';
-import logo from 'assets/logo-black2.png';
 
 import { getProfile } from 'models/Profile';
+import Carousel from '../../components/Carousel';
 
 const Container = Styled.div`
   height: 100%;
   .wrapper {
     margin: 20px;
   }
+
+  #carouselComponent {
+    margin-bottom: 32px;
+  }
 `;
 
-const Cover = Styled.div`
-  background-image: url(${BackgroundImg});
-  background-size: cover;
-  height: 560px;
-  margin-bottom: 30px;
-  background-position: 0% 25%;
-
-  @media only screen and (max-width: 500px) {
-    background-image: url(${BackgroundImgSm});
-    background-position: 65% 25%;
-  }
-
-  .cover-content {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    
-
-    .logo {
-      height: 20vw;
-      min-height: 183px;
-      max-height: 260px;
-      margin: 3vw 10px 0 8vw;
-      @media only screen and (max-width: 500px) {
-        height: 123px;
-        min-height: 123px;
-        margin-left: 14px;
-      }
-    }
-
-    .quote-container {
-      align-self: flex-end;
-      font-family: 'Gochi Hand', cursive;
-      margin: 0 5vw 5vw 0;
-    }
-
-    .quote {
-      background-color: white;
-      border-radius: 5px;
-      font-size: 25px;
-      padding: 4px;
-      color: #362F2E;
-    }
-
-    .quote-top {
-      width: 210px;
-      border-bottom-right-radius: 0;
-    }
-
-    .quote-bottom {
-      margin-left: 50px;
-      border-top-left-radius: 0;
-    }
-  }
+const Header = Styled(BaseHeader)`
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 99;
 `;
 
 const Content = Styled.div`
@@ -125,12 +79,8 @@ class Home extends React.PureComponent {
     const { profile } = this.state;
     return (
       <Container>
-        <Cover>
-          <Header active="home" />
-          <div className="cover-content">
-            <Image className="logo" src={logo} alt="Logo Rumah Sahaja" />
-          </div>
-        </Cover>
+        <Header active="home" />
+        <Carousel images={[BackgroundImg]} captions={[{ title: 'Hello Everybody', body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat' }]} />
         <Content>
           <h3 className="blog-title">Artikel Terkini</h3>
           <div className="article-container">

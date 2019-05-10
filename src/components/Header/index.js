@@ -23,9 +23,9 @@ class Header extends React.PureComponent {
   }
 
   render() {
-    const { active } = this.props;
+    const { active, className } = this.props;
     return (
-      <Nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <Nav className={cx('navbar navbar-expand-lg navbar-light bg-light', className)}>
         <a href="/" className="navbar-brand" onClick={e => this.onNavClick(e, '/')}>
           <Image src={logo} alt="Logo Rumah Sahaja" />
         </a>
@@ -69,6 +69,7 @@ class Header extends React.PureComponent {
 Header.propTypes = {
   onNavigate: PropTypes.func.isRequired,
   active: PropTypes.oneOf(['home', 'news', 'donation', 'about-us', 'schedule']),
+  className: PropTypes.string,
 };
 
 const mapDispatchToProps = dispatch => bindActionCreators(
