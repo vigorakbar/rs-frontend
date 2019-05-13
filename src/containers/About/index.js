@@ -57,19 +57,40 @@ const ImageVisiContainer = Styled.div`
   width: 100%;
   margin: 200px auto;
   display: flex;
+  position: relative;
+`;
 
-  .content{
-    bacground-color: #90c9c8;
-    height: 30em;
-    width: 40em;
-  } 
+const ImageVisiContent = Styled.div`
+background-color: #90c9c8;
+height: 20em;
+width: 40em;
+bottom: 10em;
+right: 0em;
+z-index: 1;
+position: absolute;
+padding: 5em;
+h1{    
+  color: #e1eded;
+  font-family: 'Lucida Sans Unicode',sans-serif;
+  font-weight: bold;
+}
+div{
+  color: #e1eded;
+  font-size: 28px;
+  font-family: 'Lucida Sans Unicode',sans-serif;
+  font-weight: bold;
+}
+
 `;
 
 const ImageVisiWrapper = Styled.div`
   height: 45em;
+  top: 20px;
   width: 70em;
   background-image: url(${BackgroundImgVisi});
   background-size: cover;
+  position: absolute;
+  z-index: 0;
 `;
 
 class About extends React.PureComponent {
@@ -111,7 +132,12 @@ class About extends React.PureComponent {
           <ImageTitleWrapper />
           <ImageVisiContainer>
             <ImageVisiWrapper />
-            <div className="content" />
+            <ImageVisiContent>
+              <h1>Visi</h1>
+              <div>
+                Menjadi sahabat anak-anak marginal untuk membangun karakter yang lebih baik.
+              </div>
+            </ImageVisiContent>
           </ImageVisiContainer>
         </InnerContainer>
         <Footer profile={profile} />
