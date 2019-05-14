@@ -9,6 +9,7 @@ import { getProfile } from 'models/Profile';
 import BackgroundImgTitle from 'assets/bg-about-title.jpg';
 import LogoRS from 'assets/logo.png';
 import BackgroundImgVisi from 'assets/bg-about-visi.jpg';
+import BackgroundImgMisi from 'assets/bg-about-misi.jpg';
 
 const LogoContainer = Styled.div`
   margin: 50px auto 50px auto;
@@ -52,7 +53,7 @@ const ImageTitleWrapper = Styled.div`
   margin: 0 auto;
 `;
 
-const ImageVisiContainer = Styled.div`
+const ImageContainer = Styled.div`
   height: 50em;
   width: 100%;
   margin: 200px auto;
@@ -69,11 +70,13 @@ right: 0em;
 z-index: 1;
 position: absolute;
 padding: 5em;
+
 h1{    
   color: #e1eded;
   font-family: 'Lucida Sans Unicode',sans-serif;
   font-weight: bold;
 }
+
 div{
   color: #e1eded;
   font-size: 28px;
@@ -85,9 +88,43 @@ div{
 
 const ImageVisiWrapper = Styled.div`
   height: 45em;
-  top: 20px;
   width: 70em;
+  left: 0em
   background-image: url(${BackgroundImgVisi});
+  background-size: cover;
+  position: absolute;
+  z-index: 0;
+`;
+
+const ImageMisiContent = Styled.div`
+background-color: #90c9c8;
+height: 40em;
+width: 50em;
+top: 10em;
+left: 0em;
+z-index: 1;
+position: absolute;
+padding: 5em;
+h1{    
+  color: #e1eded;
+  font-family: 'Lucida Sans Unicode',sans-serif;
+  font-weight: bold;
+}
+
+div{
+  color: #e1eded;
+  font-size: 28px;
+  font-family: 'Lucida Sans Unicode',sans-serif;
+  font-weight: bold;
+}
+
+`;
+
+const ImageMisiWrapper = Styled.div`
+  height: 45em;
+  width: 70em;
+  right: 0em;
+  background-image: url(${BackgroundImgMisi});
   background-size: cover;
   position: absolute;
   z-index: 0;
@@ -130,15 +167,31 @@ class About extends React.PureComponent {
             masyarakat.
           </h2>
           <ImageTitleWrapper />
-          <ImageVisiContainer>
+          <ImageContainer>
             <ImageVisiWrapper />
             <ImageVisiContent>
-              <h1>Visi</h1>
+              <h1>VISI</h1>
               <div>
                 Menjadi sahabat anak-anak marginal untuk membangun karakter yang lebih baik.
               </div>
             </ImageVisiContent>
-          </ImageVisiContainer>
+          </ImageContainer>
+          <ImageContainer>
+            <ImageMisiWrapper />
+            <ImageMisiContent>
+              <h1>MISI</h1>
+              <div>
+                <br />
+                Membiasakan anak-anak marginal untuk hidup sehat.
+                <br />
+                <br />
+                Memberikan pendidikan yang layak bagi anak-anak marginal.
+                <br />
+                <br />
+                Memfasilitasi anak-anak marginal untuk mendapatkan lingkungan yang lebih baik dalam bentuk rumah singgah.
+              </div>
+            </ImageMisiContent>
+          </ImageContainer>
         </InnerContainer>
         <Footer profile={profile} />
       </Container>
